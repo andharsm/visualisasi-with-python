@@ -7,14 +7,20 @@ import streamlit as st
 import urllib
 
 # load data
-print('load dimulai')
-# order_purchase = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_order_purchase.csv')
-# customer_distribution = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_customer_distribution.csv')
+@st.cache  # Menambahkan decorator st.cache untuk menyimpan data dalam cache
+def load_data():
+    order_purchase = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_order_purchase.csv')
+    customer_distribution = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_customer_distribution.csv')
+    order_items = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_order_items.csv')
+    product_rating = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_product_rating.csv')
+    return order_purchase, customer_distribution, order_items, product_rating
+
+order_purchase, customer_distribution, order_items, product_rating = load_data()
 print('load berhasil')
-order_purchase = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_order_purchase.csv')
-customer_distribution = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_customer_distribution.csv')
-order_items = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_order_items.csv')
-product_rating = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_product_rating.csv')
+# order_purchase = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_order_purchase.csv')
+# customer_distribution = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_customer_distribution.csv')
+# order_items = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_order_items.csv')
+# product_rating = pd.read_csv('D:/Kuliah/Dicoding/visualisasi-with-python/dashboard/dataset_product_rating.csv')
 
 # Fungsi bantuan
 def plot_brazil_map(data):
