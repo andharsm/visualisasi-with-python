@@ -7,7 +7,7 @@ import streamlit as st
 import urllib
 
 # load data
-@st.cache  # Menambahkan decorator st.cache untuk menyimpan data dalam cache
+@st.cache_data
 def load_data():
     order_purchase = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_order_purchase.csv')
     customer_distribution = pd.read_csv('https://raw.githubusercontent.com/andharsm/visualisasi-with-python/main/dashboard/dataset_customer_distribution.csv')
