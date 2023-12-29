@@ -5,6 +5,7 @@ __pycache__/
 
 # Ignore the virtual environment folder
 venv/
+envVisualisasi/
 
 # Ignore the Visual Studio Code folder
 .vscode/
