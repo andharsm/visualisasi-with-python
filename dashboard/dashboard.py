@@ -161,15 +161,17 @@ bottom_10_sold = result.nsmallest(10, 'order_item_id')
 cmap_top = sns.color_palette("RdBu_r", n_colors=len(top_10_sold))
 cmap_bottom = sns.color_palette("RdBu", n_colors=len(bottom_10_sold))
 
+# Top 10 Kategori Produk Berdasarkan Jumlah Order
 fig, ax = plt.subplots(figsize=(12, 6))
-sns.barplot(x='order_item_id', y='product_category_name', data=top_10_sold, palette=cmap_top)
+sns.barplot(x='order_item_id', y='product_category_name', hue='product_category_name', data=top_10_sold, palette=cmap_top, dodge=False)
 ax.set_title('Top 10 Kategori Produk Berdasarkan Jumlah Order')
 ax.set_xlabel('Jumlah Order')
 ax.set_ylabel('Kategori Produk')
 st.pyplot(fig)
 
+# Bottom 10 Kategori Produk Berdasarkan Jumlah Order
 fig, ax = plt.subplots(figsize=(12, 6))
-sns.barplot(x='order_item_id', y='product_category_name', data=bottom_10_sold, palette=cmap_bottom)
+sns.barplot(x='order_item_id', y='product_category_name', hue='product_category_name', data=bottom_10_sold, palette=cmap_bottom, dodge=False)
 ax.set_title('Bottom 10 Kategori Produk Berdasarkan Jumlah Order')
 ax.set_xlabel('Jumlah Order')
 ax.set_ylabel('Kategori Produk')
@@ -199,7 +201,8 @@ with col1:
     ax.set_title('Distribusi Rating Produk')
     ax.set_xlabel('Rating')
     ax.set_ylabel('Jumlah')
-    ax.set_xticklabels(ax.get_xticklabels(), rotation=90)  # Rotate x-axis labels
+    ax.set_xticks(ax.get_xticks())
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
 
     # Add legend
     ax.legend(title='Rating', labels=['< 4.5', '>= 4.5'], loc='upper right')
